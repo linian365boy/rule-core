@@ -1,6 +1,6 @@
 package com.jp.nian.rule.engine;
 
-import com.jp.nian.rule.vo.Operation;
+import com.jp.nian.rule.vo.Operator;
 
 /**
  * @ClassName: RuleEngine  
@@ -12,6 +12,6 @@ import com.jp.nian.rule.vo.Operation;
  * @since JDK 1.7
  */
 public abstract class RuleEngine {
-	public abstract void setOperation(Operation oper);
+	public abstract void setOperation(Operator oper);
 	public abstract void execute();
 }

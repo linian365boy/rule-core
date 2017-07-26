@@ -1,6 +1,6 @@
 package com.jp.nian.rule.engine;
 
-import com.jp.nian.rule.vo.Operation;
+import com.jp.nian.rule.vo.Operator;
 
 /**
  * @ClassName: DefaultRuleEngine  
@@ -20,7 +20,7 @@ public class DefaultRuleEngine extends RuleEngine {
 	}
 
 	@Override
-	public void setOperation(Operation oper) {
+	public void setOperation(Operator oper) {
 		
 	}
 

@@ -2,6 +2,10 @@ package com.jp.nian.rule.vo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class Rule implements Serializable {
 	/** 
@@ -14,9 +18,13 @@ public class Rule implements Serializable {
 	//规则创建日期
 	private Date createDate;
 	//入参
-	private Parameter inputParam;
+	private List<Parameter> inputParam;
 	//出参
-	private Parameter outputParam;
+	private Object outputParam;
+	/**
+	 * 运算
+	 */
+	private List<Operation> operations;
 	
 	public String getName() {
 		return name;
@@ -30,16 +38,27 @@ public class Rule implements Serializable {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-	public Parameter getInputParam() {
+	public List<Parameter> getInputParam() {
 		return inputParam;
 	}
-	public void setInputParam(Parameter inputParam) {
+	public void setInputParam(List<Parameter> inputParam) {
 		this.inputParam = inputParam;
 	}
-	public Parameter getOutputParam() {
+	public Object getOutputParam() {
 		return outputParam;
 	}
-	public void setOutputParam(Parameter outputParam) {
+	public void setOutputParam(Object outputParam) {
 		this.outputParam = outputParam;
+	}
+	
+	public List<Operation> getOperations() {
+		return operations;
+	}
+	public void setOperations(List<Operation> operations) {
+		this.operations = operations;
+	}
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 }

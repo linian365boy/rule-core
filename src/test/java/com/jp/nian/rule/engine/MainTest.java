@@ -1,6 +1,6 @@
 package com.jp.nian.rule.engine;
 
-import com.jp.nian.rule.vo.Operation;
+import java.util.Arrays;
 import com.jp.nian.rule.vo.Parameter;
 import com.jp.nian.rule.vo.Rule;
 
@@ -19,12 +19,12 @@ public class MainTest {
 		outputParam.setType("java.lang.String");
 		
 		Rule rule = new Rule();
-		rule.setInputParam(inputParam);
+		rule.setInputParam(Arrays.asList(inputParam));
 		rule.setOutputParam(outputParam);
 		rule.setName("第一个规则例子");
 		
-		Operation oper = new Operation();
-		engine.setOperation(oper);
+		//Operator oper = new Operator();
+		//engine.setOperation(oper);
 	}
 	
 }
