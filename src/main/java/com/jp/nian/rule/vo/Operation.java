@@ -22,7 +22,7 @@ public class Operation {
 	 */
 	private Operator operator;
 	/**
-	 * 临界值
+	 * 临界值，类型是param的参数类型
 	 */
 	private Object criticalValue;
 	

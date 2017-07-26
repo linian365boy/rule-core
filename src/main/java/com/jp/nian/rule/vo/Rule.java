@@ -19,12 +19,20 @@ public class Rule implements Serializable {
 	private Date createDate;
 	//入参
 	private List<Parameter> inputParam;
-	//出参
-	private Object outputParam;
+	//实际出参类型
+	private String OutputType;
 	/**
 	 * 运算
 	 */
 	private List<Operation> operations;
+	/**
+	 * True分支的结果
+	 */
+	private String trueValue;
+	/**
+	 * False分支的结果
+	 */
+	private String falseValue;
 	
 	public String getName() {
 		return name;
@@ -44,18 +52,29 @@ public class Rule implements Serializable {
 	public void setInputParam(List<Parameter> inputParam) {
 		this.inputParam = inputParam;
 	}
-	public Object getOutputParam() {
-		return outputParam;
+	public String getOutputType() {
+		return OutputType;
 	}
-	public void setOutputParam(Object outputParam) {
-		this.outputParam = outputParam;
+	public void setOutputType(String outputType) {
+		OutputType = outputType;
 	}
-	
 	public List<Operation> getOperations() {
 		return operations;
 	}
 	public void setOperations(List<Operation> operations) {
 		this.operations = operations;
+	}
+	public String getTrueValue() {
+		return trueValue;
+	}
+	public void setTrueValue(String trueValue) {
+		this.trueValue = trueValue;
+	}
+	public String getFalseValue() {
+		return falseValue;
+	}
+	public void setFalseValue(String falseValue) {
+		this.falseValue = falseValue;
 	}
 	@Override
 	public String toString() {
