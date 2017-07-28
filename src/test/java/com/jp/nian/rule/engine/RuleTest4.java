@@ -30,13 +30,13 @@ public class RuleTest4 {
 		inputParam.setName("name");
 		inputParam.setCnName("名称");
 		inputParam.setType(TypeEnum.String);
-		inputParam.setValue("nima");
+		inputParam.setValue("tanfan");
 		
 		Parameter inputParam2 = new Parameter();
 		inputParam2.setName("age");
 		inputParam2.setCnName("年龄");
 		inputParam2.setType(TypeEnum.Long);
-		inputParam2.setValue("19");
+		inputParam2.setValue("29");
 		/** 用户的输入 end **/
 		
 		/** 需要满足的条件  start **/

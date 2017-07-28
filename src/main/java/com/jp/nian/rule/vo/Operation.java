@@ -33,6 +33,14 @@ public class Operation {
 	 * 下一个运算
 	 */
 	private Operation nextOperation;
+	/**
+	 * 临界运算
+	 */
+	private boolean criticalOperation;
+	/**
+	 * 临界的条件类型，默认是Equal
+	 */
+	private CriticalConditionEnum criticalType = CriticalConditionEnum.Equal;
 	
 	public Parameter getParam() {
 		return param;
@@ -72,9 +80,24 @@ public class Operation {
 		return nextOperation;
 	}
 
+	public boolean isCriticalOperation() {
+		return criticalOperation;
+	}
+
+	public void setCriticalOperation(boolean criticalOperation) {
+		this.criticalOperation = criticalOperation;
+	}
+	
+	public CriticalConditionEnum getCriticalType() {
+		return criticalType;
+	}
+
+	public void setCriticalType(CriticalConditionEnum criticalType) {
+		this.criticalType = criticalType;
+	}
+
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
-
 }

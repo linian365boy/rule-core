@@ -8,6 +8,7 @@ import org.apache.commons.lang3.time.DateUtils;
 import com.jp.nian.rule.compare.RuleCompare;
 import com.jp.nian.rule.condition.RuleCondition;
 import com.jp.nian.rule.context.Context;
+import com.jp.nian.rule.vo.CriticalConditionEnum;
 import com.jp.nian.rule.vo.Operation;
 import com.jp.nian.rule.vo.Operator;
 import com.jp.nian.rule.vo.Parameter;
@@ -79,22 +80,26 @@ public class DefaultRuleEngine extends RuleEngine {
 	private boolean compare(Operation operation) throws Exception {
 		Parameter param = operation.getParam();
 		//临界值，真实类型，用作比较。比如年龄，应该是数值类型；姓名，应该是字符串类型。
-		Object value = getValue(param.getType(), operation.getCriticalValue());
-		Object objVal = getValue(param.getType(), param.getValue());
-		int result = Objects.compare(objVal, value, new RuleCompare<>());
-		switch(operation.getOperator()){
-			case Eq: 
-				return result == 0;
-			case GreaterThan:
-				return result > 0;
-			case LessThan:
-				return result < 0;
-			case GreaterThanEq:
-				return result >= 0;
-			case LessThanEq:
-				return result <= 0;
-			default: 
-				return false;
+		if(operation.getCriticalType() == CriticalConditionEnum.Operation){
+			return operation.isCriticalOperation();
+		}else{
+			Object value = getValue(param.getType(), operation.getCriticalValue());
+			Object objVal = getValue(param.getType(), param.getValue());
+			int result = Objects.compare(objVal, value, new RuleCompare<>());
+			switch(operation.getOperator()){
+				case Eq: 
+					return result == 0;
+				case GreaterThan:
+					return result > 0;
+				case LessThan:
+					return result < 0;
+				case GreaterThanEq:
+					return result >= 0;
+				case LessThanEq:
+					return result <= 0;
+				default: 
+					return false;
+			}
 		}
 	}
 	

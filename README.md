@@ -6,15 +6,16 @@
 - 规则包括用户的多个输入参数、运算符、运算（条件）
 
 ###### @DONE 测试类在src/test/java下
-- 目前完成条件测试----如果用户输入名称为tanfan，则返回success，否则返回fail。<br/>
-- 目前完成条件测试----如果用户输入名称为tanfan或者niange或者呵呵，则返回success，否则返回fail。
-- 目前完成条件测试----如果用户输入名称为tanfan，并且年龄为20，则返回success，否则返回fail。
-- 目前完成条件测试----如果用户输入名称为tanfan，并且年龄小于20，则返回success，否则返回fail。
+- 目前完成条件测试----如果用户输入名称为tanfan，则返回success，否则返回fail。					RuleTest1.java
+- 目前完成条件测试----如果用户输入名称为tanfan或者niange或者呵呵，则返回success，否则返回fail。	RuleTest2.java
+- 目前完成条件测试----如果用户输入名称为tanfan，并且年龄为20，则返回success，否则返回fail。		RuleTest3.java
+- 目前完成条件测试----如果用户输入名称为tanfan，并且年龄小于20，则返回success，否则返回fail。		RuleTest4.java
+- 目前完成条件测试----如果用户输入名称输入偶数时，则返回success，否则返回fail。					RuleTest5.java
+- 目前完成条件测试----如果用户输入第一个数与第二个数相加等于5，则返回success，否则返回fail。			RuleTest6.java
 
 
 ###### @DOING 测试类在src/test/java下
-- 正在完成条件测试----如果用户输入名称输入偶数时，则返回success，否则返回fail。
-- 正在完成条件测试----如果用户输入第一个数与第二个数相加等于5，则返回success，否则返回fail。
+- 正在完成条件厕所----如果用户购买商品满100元，那么商品价格打9折，否则不打折。
 
 ###### @TODO，还可以继续完善的条件（实际生活中的例子，电商活动经常有的）
 - 如果用户购买的商品满100元，那么打9折；满150，打8.5折，满200以上打8折 	（满折）
@@ -22,6 +23,6 @@
 - 如果用户购买的商品满300，则赠品一个；满500，赠品两个					（满赠）
 - 以上活动满足条件可以同时参与
 
-###### 规则引擎构思图：<br/>
+###### 规则引擎构思图：
 ![规则引擎构思](https://github.com/linian365boy/rule-core/blob/master/src/main/resources/%E8%A7%84%E5%88%99%E5%BC%95%E6%93%8E%E6%9E%84%E6%80%9D.png)
 --- 

@@ -8,15 +8,17 @@ import com.jp.nian.rule.vo.Parameter;
 import com.jp.nian.rule.vo.Rule;
 import com.jp.nian.rule.vo.TypeEnum;
 
-public class RuleTest5 {
+public class RuleTest6 {
 	
 	/**
 	 * main:有规则
-	 * 如果用户输入名称输入偶数时，则返回success，否则返回fail。
-	 * 测试1：用户输入0，期望输出success
-	 * 测试2：用户输入1，期望输出fail
-	 * 测试1：用户输入2，期望输出success
-	 * 测试2：用户输入3，期望输出fail
+	 * 如果用户输入第一个数与第二个数相加等于5，则返回success，否则返回fail。
+	 * 测试1：用户输入0，1，期望输出fail
+	 * 测试2：用户输入2，3，期望输出success
+	 * 测试3：用户输入3，2，期望输出success
+	 * 测试4：用户输入4，1，期望输出success
+	 * 测试5：用户输入5，0，期望输出success
+	 * 测试5：用户输入2，2，期望输出fail
 	 * @author tanfan 
 	 * @param args 
 	 * @since JDK 1.7
@@ -26,17 +28,22 @@ public class RuleTest5 {
 		
 		/** 模拟用户的输入 start **/
 		Parameter inputParam = new Parameter();
-		inputParam.setName("number");
-		inputParam.setCnName("数字");
+		inputParam.setName("number1");
+		inputParam.setCnName("数字1");
 		inputParam.setType(TypeEnum.Long);
-		inputParam.setValue("5");
+		inputParam.setValue("2");
+		
+		Parameter inputParam2 = new Parameter();
+		inputParam2.setName("number2");
+		inputParam2.setCnName("数字2");
+		inputParam2.setType(TypeEnum.Long);
+		inputParam2.setValue("2");
 		/** 用户的输入 end **/
 		
 		/** 需要满足的条件  start **/
 		Operation operation = new Operation();
-		operation.setParam(inputParam);
 		operation.setCriticalType(CriticalConditionEnum.Operation);
-		operation.setCriticalOperation(Long.parseLong(inputParam.getValue())%2 == 0);
+		operation.setCriticalOperation(Long.parseLong(inputParam.getValue())+Long.parseLong(inputParam2.getValue()) == 5);
 		/** 需要满足的条件  end **/
 		
 		Rule rule = new Rule();
