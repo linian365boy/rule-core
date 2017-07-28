@@ -29,9 +29,15 @@ public class RuleTest3 {
 		inputParam.setType("java.lang.String");
 		inputParam.setValue("nima");
 		
+		Parameter inputParam2 = new Parameter();
+		inputParam.setName("age");
+		inputParam.setCnName("年龄");
+		inputParam.setType("java.lang.Integer");
+		inputParam.setValue("20");
+		
 		Rule rule = new Rule();
-		rule.setInputParam(Arrays.asList(inputParam));
-		rule.setName("第一个规则例子");
+		rule.setInputParams(Arrays.asList(inputParam,inputParam2));
+		rule.setName("第三个规则例子");
 		rule.setCreateDate(new Date());
 		
 		

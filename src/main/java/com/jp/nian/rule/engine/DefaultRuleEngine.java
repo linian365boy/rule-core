@@ -33,7 +33,7 @@ public class DefaultRuleEngine extends RuleEngine {
 	}
 	
 	private boolean compute(Rule rule){
-		List<Parameter> params = rule.getInputParam();
+		List<Parameter> params = rule.getInputParams();
 		for(Parameter param : params){
 			String paramName = param.getName();
 			String paramType = param.getType();

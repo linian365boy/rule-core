@@ -28,7 +28,7 @@ public class RuleTest1 {
 		inputParam.setValue("tanfan");
 		
 		Rule rule = new Rule();
-		rule.setInputParam(Arrays.asList(inputParam));
+		rule.setInputParams(Arrays.asList(inputParam));
 		rule.setName("第一个规则例子");
 		rule.setCreateDate(new Date());
 		

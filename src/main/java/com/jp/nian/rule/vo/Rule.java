@@ -20,7 +20,7 @@ public class Rule implements Serializable {
 	//规则创建日期
 	private Date createDate;
 	//入参
-	private List<Parameter> inputParam;
+	private List<Parameter> inputParams;
 	//实际出参类型
 	private String OutputType;
 	/**
@@ -48,11 +48,11 @@ public class Rule implements Serializable {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-	public List<Parameter> getInputParam() {
-		return inputParam;
+	public List<Parameter> getInputParams() {
+		return inputParams;
 	}
-	public void setInputParam(List<Parameter> inputParam) {
-		this.inputParam = inputParam;
+	public void setInputParams(List<Parameter> inputParams) {
+		this.inputParams = inputParams;
 	}
 	public String getOutputType() {
 		return OutputType;

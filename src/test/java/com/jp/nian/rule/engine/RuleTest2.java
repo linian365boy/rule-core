@@ -31,8 +31,8 @@ public class RuleTest2 {
 		inputParam.setValue("呵呵da");
 		
 		Rule rule = new Rule();
-		rule.setInputParam(Arrays.asList(inputParam));
-		rule.setName("第一个规则例子");
+		rule.setInputParams(Arrays.asList(inputParam));
+		rule.setName("第二个规则例子");
 		rule.setCreateDate(new Date());
 		
 		
