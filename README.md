@@ -16,6 +16,3 @@
 
 ![规则引擎构思](https://github.com/linian365boy/rule-core/blob/master/src/main/resources/%E8%A7%84%E5%88%99%E5%BC%95%E6%93%8E%E6%9E%84%E6%80%9D.png)
 ---
-![规则引擎构思](https://raw.githubusercontent.com/linian365boy/rule-core/master/src/main/resources/%E8%A7%84%E5%88%99%E5%BC%95%E6%93%8E%E6%9E%84%E6%80%9D.png)
-
-
