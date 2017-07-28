@@ -9,52 +9,53 @@ import com.jp.nian.rule.vo.Parameter;
 import com.jp.nian.rule.vo.Rule;
 import com.jp.nian.rule.vo.TypeEnum;
 
-public class RuleTest2 {
+public class RuleTest4 {
 	
 	/**
 	 * main:有规则
-	 * 如果用户输入名称为tanfan或者niange或者呵呵，则返回success，否则返回fail。
-	 * 测试1：用户输入nima，期望输出fail
-	 * 测试2：用户输入tanfan，期望输出success
-	 * 测试3：用户输入niange，期望输出success
-	 * 测试4：用户输入呵呵，期望输出success
-	 * 测试5：用户输入呵呵da，期望输出fail
+	 * 如果用户输入名称为tanfan，并且输入年龄小于20时，则返回success，否则返回fail。
+	 * 测试1：用户输入nima，20，期望输出fail
+	 * 测试2：用户输入tanfan，20，期望输出fail
+	 * 测试1：用户输入nima，19，期望输出fail
+	 * 测试2：用户输入tanfan，19，期望输出success
 	 * @author tanfan 
 	 * @param args 
 	 * @since JDK 1.7
 	 */
 	public static void main(String[] args) throws Exception {
 		RuleEngine engine = RuleEngineFactory.newInstance().getRuleEngine();
+		
+		/** 用户的输入 start **/
 		Parameter inputParam = new Parameter();
 		inputParam.setName("name");
 		inputParam.setCnName("名称");
 		inputParam.setType(TypeEnum.String);
-		inputParam.setValue("tanfan2");
+		inputParam.setValue("nima");
 		
-		Rule rule = new Rule();
-		rule.setInputParams(Arrays.asList(inputParam));
-		rule.setName("第二个规则例子");
-		rule.setCreateDate(new Date());
+		Parameter inputParam2 = new Parameter();
+		inputParam2.setName("age");
+		inputParam2.setCnName("年龄");
+		inputParam2.setType(TypeEnum.Long);
+		inputParam2.setValue("19");
+		/** 用户的输入 end **/
 		
-		
+		/** 需要满足的条件  start **/
 		Operation operation = new Operation();
 		operation.setOperator(Operator.Eq);
 		operation.setParam(inputParam);
 		operation.setCriticalValue("tanfan");
 		
 		Operation operation2 = new Operation();
-		operation2.setOperator(Operator.Eq);
-		operation2.setParam(inputParam);
-		operation2.setCriticalValue("niange");
+		operation2.setOperator(Operator.LessThan);
+		operation2.setParam(inputParam2);
+		operation2.setCriticalValue("20");
+		/** 需要满足的条件  end **/
 		
-		Operation operation3 = new Operation();
-		operation3.setOperator(Operator.Eq);
-		operation3.setParam(inputParam);
-		operation3.setCriticalValue("呵呵");
-		
-		//rule.setOperations(Arrays.asList(operation,operation2,operation3));
-		rule.setOperation(operation).or(operation2).or(operation3);
-		
+		Rule rule = new Rule();
+		rule.setInputParams(Arrays.asList(inputParam,inputParam2));
+		rule.setName("第四个规则例子");
+		rule.setCreateDate(new Date());
+		rule.setOperation(operation).and(operation2);
 		rule.setOutputType(TypeEnum.String);
 		rule.setFalseValue("fail");
 		rule.setTrueValue("success");

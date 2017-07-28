@@ -3,6 +3,9 @@ package com.jp.nian.rule.condition;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import com.jp.nian.rule.vo.Operation;
 import com.jp.nian.rule.vo.Operator;
 
@@ -60,5 +63,9 @@ public class RuleCondition {
 	public void setOperations(List<Operation> operations) {
 		this.operations = operations;
 	}
-
+	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+	}
 }

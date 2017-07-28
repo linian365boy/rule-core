@@ -22,7 +22,7 @@ public class Rule implements Serializable {
 	//入参
 	private List<Parameter> inputParams;
 	//实际出参类型
-	private String OutputType;
+	private TypeEnum outputType;
 	/**
 	 * True分支的结果
 	 */
@@ -54,11 +54,11 @@ public class Rule implements Serializable {
 	public void setInputParams(List<Parameter> inputParams) {
 		this.inputParams = inputParams;
 	}
-	public String getOutputType() {
-		return OutputType;
+	public TypeEnum getOutputType() {
+		return outputType;
 	}
-	public void setOutputType(String outputType) {
-		OutputType = outputType;
+	public void setOutputType(TypeEnum outputType) {
+		this.outputType = outputType;
 	}
 	public String getTrueValue() {
 		return trueValue;
@@ -79,14 +79,14 @@ public class Rule implements Serializable {
 	public void setCondition(RuleCondition condition) {
 		this.condition = condition;
 	}
-	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
-	}
 	
 	public RuleCondition setOperation(Operation operation) {
 		//设置第一个条件
 		return condition.and(operation);
 	}
 	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+	}
 }

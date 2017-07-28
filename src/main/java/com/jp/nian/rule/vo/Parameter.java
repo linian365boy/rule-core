@@ -27,7 +27,7 @@ public class Parameter implements Serializable {
 	/**
 	 * 参数类型
 	 */
-	private String type;
+	private TypeEnum type;
 	/**
 	 * 参数中文描述
 	 */
@@ -43,10 +43,10 @@ public class Parameter implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getType() {
+	public TypeEnum getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(TypeEnum type) {
 		this.type = type;
 	}
 	public String getCnName() {
