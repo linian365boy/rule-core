@@ -7,6 +7,8 @@ import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import com.jp.nian.rule.condition.RuleCondition;
+
 public class Rule implements Serializable {
 	/** 
 	 * serialVersionUID:序列化
@@ -22,10 +24,6 @@ public class Rule implements Serializable {
 	//实际出参类型
 	private String OutputType;
 	/**
-	 * 运算
-	 */
-	private List<Operation> operations;
-	/**
 	 * True分支的结果
 	 */
 	private String trueValue;
@@ -33,6 +31,10 @@ public class Rule implements Serializable {
 	 * False分支的结果
 	 */
 	private String falseValue;
+	/**
+	 * 规则条件组合
+	 */
+	private RuleCondition condition = new RuleCondition();
 	
 	public String getName() {
 		return name;
@@ -58,12 +60,6 @@ public class Rule implements Serializable {
 	public void setOutputType(String outputType) {
 		OutputType = outputType;
 	}
-	public List<Operation> getOperations() {
-		return operations;
-	}
-	public void setOperations(List<Operation> operations) {
-		this.operations = operations;
-	}
 	public String getTrueValue() {
 		return trueValue;
 	}
@@ -76,8 +72,21 @@ public class Rule implements Serializable {
 	public void setFalseValue(String falseValue) {
 		this.falseValue = falseValue;
 	}
+	
+	public RuleCondition getCondition() {
+		return condition;
+	}
+	public void setCondition(RuleCondition condition) {
+		this.condition = condition;
+	}
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
+	
+	public RuleCondition setOperation(Operation operation) {
+		//设置第一个条件
+		return condition.and(operation);
+	}
+	
 }

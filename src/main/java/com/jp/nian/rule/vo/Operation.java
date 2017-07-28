@@ -25,6 +25,14 @@ public class Operation {
 	 * 临界值，类型是param的参数类型
 	 */
 	private Object criticalValue;
+	/**
+	 * 与下一个运算的运算符
+	 */
+	private Operator nextOperator;
+	/**
+	 * 下一个运算
+	 */
+	private Operation nextOperation;
 	
 	public Parameter getParam() {
 		return param;
@@ -48,8 +56,24 @@ public class Operation {
 		this.criticalValue = criticalValue;
 	}
 	
+	public Operator getNextOperator() {
+		return nextOperator;
+	}
+
+	public void setNextOperator(Operator nextOperator) {
+		this.nextOperator = nextOperator;
+	}
+	
+	public Operation getNextOperation() {
+		return nextOperation;
+	}
+
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+	}
+
+	public void setNextOperation(Operation operation) {
+		
 	}
 }

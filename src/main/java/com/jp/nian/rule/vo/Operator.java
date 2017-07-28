@@ -15,7 +15,11 @@ public enum Operator {
 	GreaterThan("greaterThan",">"),
 	LessThan("lessThan","<"),
 	GreaterThanEq("greaterThanEq",">="),
-	LessThanEq("lessThanEq","<=");
+	LessThanEq("lessThanEq","<="),
+	
+	And("and","&"),
+	Or("or","|");
+	
 	
 	/**
 	 * 名称
