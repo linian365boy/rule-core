@@ -16,8 +16,8 @@ public class RuleTest3 {
 	 * 如果用户输入名称为tanfan，并且年龄为20，则返回success，否则返回fail。
 	 * 测试1：用户输入nima，20，期望输出fail
 	 * 测试2：用户输入tanfan，20，期望输出success
-	 * 测试1：用户输入nima，19，期望输出fail
-	 * 测试2：用户输入tanfan，19，期望输出fail
+	 * 测试3：用户输入nima，19，期望输出fail
+	 * 测试4：用户输入tanfan，19，期望输出fail
 	 * @author tanfan 
 	 * @param args 
 	 * @since JDK 1.7

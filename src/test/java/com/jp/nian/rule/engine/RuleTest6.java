@@ -18,7 +18,7 @@ public class RuleTest6 {
 	 * 测试3：用户输入3，2，期望输出success
 	 * 测试4：用户输入4，1，期望输出success
 	 * 测试5：用户输入5，0，期望输出success
-	 * 测试5：用户输入2，2，期望输出fail
+	 * 测试6：用户输入2，2，期望输出fail
 	 * @author tanfan 
 	 * @param args 
 	 * @since JDK 1.7

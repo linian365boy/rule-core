@@ -8,15 +8,14 @@ import com.jp.nian.rule.vo.Parameter;
 import com.jp.nian.rule.vo.Rule;
 import com.jp.nian.rule.vo.TypeEnum;
 
-public class RuleTest5 {
+public class RuleTest7 {
 	
 	/**
 	 * main:有规则
-	 * 如果用户输入名称输入偶数时，则返回success，否则返回fail。
-	 * 测试1：用户输入0，期望输出success
-	 * 测试2：用户输入1，期望输出fail
-	 * 测试3：用户输入2，期望输出success
-	 * 测试4：用户输入3，期望输出fail
+	 * 如果用户购买商品满100元，那么商品价格打9折，否则不打折。
+	 * 测试1：购买商品190元，期望输出190*90%
+	 * 测试2：用户输入90元，期望输出90
+	 * 测试3：用户输入100元，期望输出100*90%
 	 * @author tanfan 
 	 * @param args 
 	 * @since JDK 1.7
@@ -26,17 +25,16 @@ public class RuleTest5 {
 		
 		/** 模拟用户的输入 start **/
 		Parameter inputParam = new Parameter();
-		inputParam.setName("number");
-		inputParam.setCnName("数字");
-		inputParam.setType(TypeEnum.Long);
-		inputParam.setValue("5");
+		inputParam.setName("price");
+		inputParam.setCnName("价格");
+		inputParam.setType(TypeEnum.Double);
+		inputParam.setValue("90");
 		/** 用户的输入 end **/
 		
 		/** 需要满足的条件  start **/
 		Operation operation = new Operation();
-		operation.setParam(inputParam);
 		operation.setCriticalType(CriticalConditionEnum.Operation);
-		operation.setCriticalOperation(Long.parseLong(inputParam.getValue())%2 == 0);
+		operation.setCriticalOperation(Double.parseDouble(inputParam.getValue())>=100);
 		/** 需要满足的条件  end **/
 		
 		Rule rule = new Rule();
@@ -44,9 +42,11 @@ public class RuleTest5 {
 		rule.setName("第五个规则例子");
 		rule.setCreateDate(new Date());
 		rule.setOperation(operation);
-		rule.setOutputType(TypeEnum.String);
-		rule.setFalseValue("fail");
-		rule.setTrueValue("success");
+		rule.setOutputType(TypeEnum.Double);
+		/** 设置不满足条件返回值  **/
+		rule.setFalseValue(String.valueOf(Double.parseDouble(inputParam.getValue())));
+		/** 设置满足条件返回值  **/
+		rule.setTrueValue(String.valueOf(Double.parseDouble(inputParam.getValue())*0.9));
 		
 		Object strResult = engine.loadRule(rule).execute();
 		System.out.println("the result is "+strResult);
