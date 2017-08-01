@@ -55,6 +55,21 @@ public class RuleCondition {
 		operations.add(operation);
 		return this;
 	}
+	
+	/**
+	 * exclude:构造exclude排斥节点
+	 * @author tanfan 
+	 * @param operation2
+	 * @return 
+	 * @since JDK 1.7
+	 */
+	public RuleCondition exclude(Operation operation) {
+		Operation lastOperation = operations.get(operations.size()-1);
+		lastOperation.setNextOperator(Operator.Ex);
+		lastOperation.setNextOperation(operation);
+		operations.add(operation);
+		return this;
+	}
 
 	public List<Operation> getOperations() {
 		return operations;
@@ -68,4 +83,5 @@ public class RuleCondition {
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
+
 }

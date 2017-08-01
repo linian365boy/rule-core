@@ -17,8 +17,18 @@ public enum Operator {
 	GreaterThanEq("greaterThanEq",">="),
 	LessThanEq("lessThanEq","<="),
 	
+	/**
+	 * 与
+	 */
 	And("and","&"),
-	Or("or","|");
+	/**
+	 * 或
+	 */
+	Or("or","|"), 
+	/**
+	 * 非
+	 */
+	Ex("exclude","!");
 	
 	
 	/**

@@ -30,51 +30,50 @@ public class DefaultRuleEngine extends RuleEngine {
 	@Override
 	public Object execute() throws Exception {
 		Rule rule = Context.getRule();
-		if(compute(rule)){
-			return rule.getTrueValue();
-		}else{
-			return rule.getFalseValue();
+		Operation operation = compute(rule);
+		if(operation != null){
+			if(operation.getExpectVal() != null){
+				return operation.getExpectVal();
+			}else{
+				return rule.getTrueValue();
+			}
 		}
+		return rule.getFalseValue();
 	}
 	
-	private boolean compute(Rule rule) throws Exception {
-		/*List<Parameter> params = rule.getInputParams();
-		for(Parameter param : params){
-			String paramName = param.getName();
-			String paramType = param.getType();
-			String paramValue = param.getValue();
-			
-		}*/
+	/**
+	 * computeReturnOperation:返回符合条件的那个运算
+	 * @author tanfan 
+	 * @param rule
+	 * @return
+	 * @throws Exception 
+	 * @since JDK 1.7
+	 */
+	private Operation compute(Rule rule) throws Exception {
 		RuleCondition condition = rule.getCondition();
 		List<Operation> operations = condition.getOperations();
+		Operation resultOper = null;
 		for(Operation oper : operations){
 			boolean flag = compare(oper);
 			if(flag){
 				if(oper.getNextOperator() == Operator.And){
 					continue;
+				}else if(oper.getNextOperator() == Operator.Ex){
+					resultOper = oper;
+					break;
 				}
 			}else{
-				if(oper.getNextOperator() == Operator.Or){
+				if(oper.getNextOperator() == Operator.Or || 
+						oper.getNextOperator() == Operator.Ex){
 					continue;
 				}
 			}
-			return flag;
-		}
-		
-		/*List<Operation> operations = rule.getOperations();
-		for(Operation operation : operations){
-			Parameter param = operation.getParam();
-			Operator operator = operation.getOperator();
-			Object value = operation.getCriticalValue();
-			String valueStr = (String)value;
-			switch(operator){
-				case Eq: 
-					return valueStr.equals(param.getValue());
-				default: 
-					return false;
+			if(flag){
+				resultOper = oper;
 			}
-		}*/
-		return false;
+			break;
+		}
+		return resultOper;
 	}
 	
 	private boolean compare(Operation operation) throws Exception {

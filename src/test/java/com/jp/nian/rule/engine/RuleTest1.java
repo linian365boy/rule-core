@@ -26,7 +26,7 @@ public class RuleTest1 {
 		inputParam.setName("name");
 		inputParam.setCnName("名称");
 		inputParam.setType(TypeEnum.String);
-		inputParam.setValue("nima");
+		inputParam.setValue("tanfan");
 		
 		Rule rule = new Rule();
 		rule.setInputParams(Arrays.asList(inputParam));
@@ -37,6 +37,8 @@ public class RuleTest1 {
 		operation.setOperator(Operator.Eq);
 		operation.setParam(inputParam);
 		operation.setCriticalValue("tanfan");
+		//优先权大于Rule trueValue
+		operation.setExpectVal("tanfan");
 		
 		rule.setOperation(operation);
 		rule.setOutputType(TypeEnum.String);

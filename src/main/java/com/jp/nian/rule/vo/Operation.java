@@ -41,6 +41,18 @@ public class Operation {
 	 * 临界的条件类型，默认是Equal
 	 */
 	private CriticalConditionEnum criticalType = CriticalConditionEnum.Equal;
+	/**
+	 * 多个条件满足时，根据优先级进行哪个条件运算
+	 * 不设值，按添加顺序运算条件
+	 * 该值越大，优先权越大
+	 */
+	private int priority;
+	/**
+	 * 运算期望的返回值，按道理，每个运算都会有一个期望的返回值
+	 * 优先权大于Rule类的trueValue
+	 * 如果有值，会先返回该值
+	 */
+	private Object expectVal;
 	
 	public Parameter getParam() {
 		return param;
@@ -94,6 +106,22 @@ public class Operation {
 
 	public void setCriticalType(CriticalConditionEnum criticalType) {
 		this.criticalType = criticalType;
+	}
+	
+	public int getPriority() {
+		return priority;
+	}
+
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+	
+	public Object getExpectVal() {
+		return expectVal;
+	}
+
+	public void setExpectVal(Object expectVal) {
+		this.expectVal = expectVal;
 	}
 
 	@Override

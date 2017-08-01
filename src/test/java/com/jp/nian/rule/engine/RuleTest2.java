@@ -29,7 +29,7 @@ public class RuleTest2 {
 		inputParam.setName("name");
 		inputParam.setCnName("名称");
 		inputParam.setType(TypeEnum.String);
-		inputParam.setValue("tanfan2");
+		inputParam.setValue("呵呵");
 		
 		Rule rule = new Rule();
 		rule.setInputParams(Arrays.asList(inputParam));
@@ -52,7 +52,6 @@ public class RuleTest2 {
 		operation3.setParam(inputParam);
 		operation3.setCriticalValue("呵呵");
 		
-		//rule.setOperations(Arrays.asList(operation,operation2,operation3));
 		rule.setOperation(operation).or(operation2).or(operation3);
 		
 		rule.setOutputType(TypeEnum.String);

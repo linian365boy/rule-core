@@ -39,7 +39,7 @@ public class RuleTest7 {
 		
 		Rule rule = new Rule();
 		rule.setInputParams(Arrays.asList(inputParam));
-		rule.setName("第五个规则例子");
+		rule.setName("第七个规则例子");
 		rule.setCreateDate(new Date());
 		rule.setOperation(operation);
 		rule.setOutputType(TypeEnum.Double);

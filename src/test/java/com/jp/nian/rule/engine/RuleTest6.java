@@ -37,7 +37,7 @@ public class RuleTest6 {
 		inputParam2.setName("number2");
 		inputParam2.setCnName("数字2");
 		inputParam2.setType(TypeEnum.Long);
-		inputParam2.setValue("2");
+		inputParam2.setValue("3");
 		/** 用户的输入 end **/
 		
 		/** 需要满足的条件  start **/
@@ -48,7 +48,7 @@ public class RuleTest6 {
 		
 		Rule rule = new Rule();
 		rule.setInputParams(Arrays.asList(inputParam));
-		rule.setName("第五个规则例子");
+		rule.setName("第六个规则例子");
 		rule.setCreateDate(new Date());
 		rule.setOperation(operation);
 		rule.setOutputType(TypeEnum.String);
